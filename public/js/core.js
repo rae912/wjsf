@@ -16,25 +16,13 @@ scotchTodo.controller("mainController", function($scope, $http) {
         });
     // when submitting the add form, send the text to the node API
     $scope.createTodo = function () {
-        $http.post('/api/todos', $scope.formData)
-            .success(function (data) {
-                $scope.formData = {};
-                $scope.todos = data;
-                console.log(data);
-            })
-            .error(function (data) {
-                console.log('Error: ' + data);
-            });
+        console.log($scope.formData.search);
+        $http.post('/api/todos', $scope.formData).then(
+            function successCallback(response) {
+                console.log(response)
+            }, function errorCallback(response) {
+                console.log('ERROR:' + response)
+            }
+        );
     };
-    // delete a todo after checking it
-    $scope.deleteTodo = function (id) {
-        $http.delete('/api/todos/' + id)
-            .success(function (data) {
-                $scope.todos = data;
-                console.log(data);
-            })
-            .error(function (data) {
-                console.log('Error: ' + data);
-            });
-    };
-})
+});
