@@ -16,13 +16,19 @@ scotchTodo.controller("mainController", function($scope, $http) {
         });
     // when submitting the add form, send the text to the node API
     $scope.createTodo = function () {
+            $scope.formData.flag = false;
+    $scope.formData.resp = {};
         console.log($scope.formData.search);
         $http.post('/api/todos', $scope.formData).then(
             function successCallback(response) {
-                console.log(response)
+                console.log(response);
+                $scope.formData.flag = true;
+                $scope.formData.resp = response.data.hits.hits;
+                console.log($scope.formData.resp);
             }, function errorCallback(response) {
                 console.log('ERROR:' + response)
             }
         );
     };
+
 });

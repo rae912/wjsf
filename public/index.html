@@ -74,6 +74,15 @@
                 </form>
                 </div>
 
+                <div ng-if="formData.search">
+                  <div ng-repeat="x in formData.resp">
+
+                    <p>{{x._source.timestamp}}</p>
+                    <p>{{x._source.phoneNum}}</p>
+                    <p>{{x._source.description}}</p>
+                  </div>
+                </div>
+
               </div>
 
             </div>

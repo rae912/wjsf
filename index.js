@@ -23,25 +23,29 @@ app.get('*', function(req, res) {
 // create Todo and send back all todos after creation
 app.post('/api/todos', function (req, res) {
 
-var request = require('request')
+var request = require('request');
 
-var Data = { "query" : { "match_phrase" : { "description" : req.body.search } }};
+var Data = { "query" : { "match_phrase" : { "description" : req.body.search } },
+  "sort" : [ { "timestamp" : { "order" : "desc" } } ]
+};
+
 var host = 'http://172.16.17.98:9200/scrapyd/_search';
 
-request.post(
-    host,
-    Data,
-    function (error, response, body) {
+request({
+    url: host,
+    method: "POST",
+    json: true,   // <--Very important!!!
+    body: Data
+},     function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log(body)
-            res.send(body)
+            console.log('search:'+req.body.search);
+            res.send(body);
+            console.log(Data)
+        } else {
+            console.log(error, response.statusCode, body)
         }
     }
 );
-    // create a Todo, information comes from AJAX request from Angular
-    //console.log(req.originalUrl);
-    //console.log('index.js:req '+req.body.search);
-    //res.json("success")
 });
 
 
