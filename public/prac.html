@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <!-- 网页的标题，我们在这里使用了AngularJS的基本表达式 -->
+    <title>{{"学习AngularJS 1.x"}}</title>
+    <style type="text/css">
+        /* 删除线 */
+        .strike {
+            text-decoration: line-through;
+        }
+
+        /* 粗体 */
+        .bold {
+            font-weight: bold;
+        }
+
+        /* 红色 */
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!-- 将FirstCtrl绑定到这个div标签上，这个标签中的内容将可以使用FirstCtrl中的数据-->
+<div ng-controller="FirstCtrl">
+    <h1>{{data.message + " World!" | reverse}}</h1>
+    <input type="text" ng-model="data.message">
+    <input type="button" value="按钮" ng-click="onClick()">
+    <input type="text" ng-model="data.style">
+    <div class="{{data.style}}">示例文本(可输入strike bold red)来调整样式</div>
+
+    <input type="checkbox" ng-model="data.flag">通过复选框来控制文字是否显示
+
+    <!-- 如果data.flag == true,则显示此段文字-->
+    <div ng-if="data.flag">
+        <p>ng-if中的文字</p>
+    </div>
+
+    <!-- 如果data.flag == true,则显示此段文字-->
+    <div ng-show="data.flag">
+        <p>ng-show中的文字</p>
+    </div>
+
+    <!-- 如果data.flag == false,则显示此段文字-->
+    <div ng-hide="data.flag">
+        <p>ng-hide中的文字</p>
+    </div>
+
+    <table>
+        <tr ng-repeat="x in list">
+            <td>{{x.name}}</td>
+            <td><input type="button" value="我是第{{$index}}行的按钮"
+                       ng-click="onClick($index)"></td>
+        </tr>
+    </table>
+
+    {{ 1234 | number:2 }}
+    <!--//显示两位小数，结果 1,234.00-->
+
+    {{ 1234.56 | currency:"人民币￥":0}}
+    <!--//转化为货币后输出(保留0位小数，四舍五入)，结果为-->
+    <!--//人民币￥1,234.00-->
+
+    {{ list | json }}
+    <!--//将对象转化为json文本输出，结果为-->
+    <!--//[ { "name": "Harry" }, { "name": "Tom" }, { "name": "Jerry" } ]-->
+
+    <tr ng-repeat="x in list | orderBy:'name'">
+        <!--//对显示的数据列表按照name进行排序-->
+        <!--//结果为显示顺序Harry,Jerry,Tom-->
+</div>
+
+<div ng-controller="Search">
+    <input type="text" ng-model="searchText.name">
+    <input type="text" ng-model="searchText.last">
+    <table>
+        <tr ng-repeat="x in list | filter:searchText">
+            <td>{{x.name}}</td>
+            <td>{{x.last}}</td>
+        </tr>
+    </table>
+</div>
+
+<!-- 以下表达式不会输出任何内容，因为它在FirstCtrl之外-->
+<p>下面的内容不会显示</p>
+<p>{{data.message}}</p>
+
+<script type="text/javascript" src="components/angular/angular.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

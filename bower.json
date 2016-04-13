@@ -1,0 +1,24 @@
+{
+  "name": "Athena_front",
+  "authors": [
+    "WangCheng <wang.cheng@whaley.cn>"
+  ],
+  "description": "A projecct for Athena",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-bootstrap": "^1.3.1",
+    "bootstrap": "^3.3.6",
+    "express": "^4.13.4"
+  }
+}
