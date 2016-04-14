@@ -29,10 +29,18 @@ var Data = { "query" : { "match_phrase" : { "description" : req.body.search } },
   "sort" : [ { "timestamp" : { "order" : "desc" } } ]
 };
 
-var host = 'http://172.16.17.98:9200/scrapyd/_search';
+    var page = 0;
+if (isNaN(req.body.currentPage)) {
+    var page = 0;
+} else {
+    var page = (req.body.currentPage - 1) * 10;
+}
+var host = 'http://172.16.17.98:9200/scrapyd/_search?size=10';
+
+    console.log(page);
 
 request({
-    url: host,
+    url: host + '&from='+ page,
     method: "POST",
     json: true,   // <--Very important!!!
     body: Data

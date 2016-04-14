@@ -115,12 +115,15 @@
 
           </div>
 
+          <div ng-if="total">
+
+             <uib-pagination total-items="bigTotalItems" ng-model="formData.currentPage" max-size="maxSize" class="pagination-sm" boundary-link-numbers="true" ng-click="createTodo()"></uib-pagination>
+                <p>{{formData.currentPage}} {{bigCurrentPage}}</p>
+          </div>
+
+
           <div>
-  <!--<script type="text/ng-template" id="alert.html">-->
-    <!--<div class="alert" style="background-color:#fa39c3;color:white" role="alert">-->
-      <!--<div ng-transclude></div>-->
-    <!--</div>-->
-  <!--</script>-->
+
 
 
 
@@ -142,6 +145,7 @@
         </div>
       </div>
     </div>
+</div>
 
 
     <!-- Bootstrap core JavaScript==================================================-
@@ -150,8 +154,7 @@
 
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js">
-    </script>
+    <script src="js/ie10-viewport-bug-workaround.js">  </script>
   </body>
 
 </html>
