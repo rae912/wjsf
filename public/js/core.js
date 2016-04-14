@@ -31,4 +31,25 @@ scotchTodo.controller("mainController", function($scope, $http) {
         );
     };
 
+    $scope.renderFinish = function() {
+        console.log('渲染完之后的操作');
+        console.log($('li').highlight($("input").val()));
+        console.log($("input").val());
+}
+
+})
+
+.directive('repeatFinish',function(){
+    return {
+        link: function(scope,element,attr){
+            console.log(scope.$index)
+            if(scope.$last == true){
+                console.log('ng-repeat执行完毕')
+                scope.$eval( attr.repeatFinish )
+            }
+        }
+    }
 });
+
+
+

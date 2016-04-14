@@ -32,6 +32,14 @@
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/jquery.highlight-5.js"></script>
   </head>
+  <script>
+    $( document ).click(function() {
+      $('li').highlight($("input").val());
+    });
+    $( document ).scroll(function() {
+      $('li').highlight($("input").val());
+    });
+</script>
 
   <body ng-controller="mainController">
     <div class="site-wrapper">
@@ -81,13 +89,14 @@
             </div>
 
             <div class="post-tabs" ng-if="formData.search">
-                  <ul class="posts" ng-repeat="x in formData.resp">
+                  <ul class="posts" ng-repeat="x in formData.resp" repeat-finish="renderFinish()">
 
                     <li class="post">
                       <p>{{x._source.timestamp}}</p>
                       {{x._source.description}}
                       <br><a href="{{ x._source.url}}" target="_blank">原始地址</a>
                     </li>
+
                   </ul>
 
 
