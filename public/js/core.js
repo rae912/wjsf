@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2016/4/12.
  */
-var scotchTodo = angular.module('scotchTodo', []);
+var scotchTodo = angular.module('scotchTodo', ['ui.bootstrap']);
 
 scotchTodo.controller("mainController", function($scope, $http) {
     $scope.formData = {};
@@ -18,6 +18,7 @@ scotchTodo.controller("mainController", function($scope, $http) {
     $scope.createTodo = function () {
             $scope.formData.flag = false;
     $scope.formData.resp = {};
+        $scope.alerts = [];
         console.log($scope.formData.search);
         $http.post('/api/todos', $scope.formData).then(
             function successCallback(response) {
@@ -25,6 +26,9 @@ scotchTodo.controller("mainController", function($scope, $http) {
                 $scope.formData.flag = true;
                 $scope.formData.resp = response.data.hits.hits;
                 console.log($scope.formData.resp);
+                $scope.alerts =  [
+    { type: 'success', msg: '找到符合的信息' + response.data.hits.total + '条' }
+  ];
             }, function errorCallback(response) {
                 console.log('ERROR:' + response)
             }
@@ -35,8 +39,20 @@ scotchTodo.controller("mainController", function($scope, $http) {
         console.log('渲染完之后的操作');
         console.log($('li').highlight($("input").val()));
         console.log($("input").val());
-}
+};
 
+  //  $scope.alerts = [
+  //  { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
+  //  { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+  //];
+
+  $scope.addAlert = function() {
+    $scope.alerts.push({msg: 'Another alert!'});
+  };
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
 })
 
 .directive('repeatFinish',function(){
@@ -50,6 +66,5 @@ scotchTodo.controller("mainController", function($scope, $http) {
         }
     }
 });
-
 
 

@@ -80,6 +80,7 @@ li.post p{
     padding: 30px;
 }
 
+
 /*
  * Header
  */
@@ -164,7 +165,7 @@ li.post p{
     }
 
     .mastfoot {
-        position: fixed;
+        position: relative;
         bottom: 0;
     }
 

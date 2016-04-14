@@ -87,8 +87,8 @@
               </div>
 
             </div>
-
-            <div class="post-tabs" ng-if="formData.search">
+ <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+            <div class="post-tabs" >
                   <ul class="posts" ng-repeat="x in formData.resp" repeat-finish="renderFinish()">
 
                     <li class="post">
@@ -110,7 +110,20 @@
             <!--<p class="lead">-->
             <!--<a href="#" class="btn btn-lg btn-default">Learn more</a>-->
             <!--</p>-->
+
+
+
           </div>
+
+          <div>
+  <!--<script type="text/ng-template" id="alert.html">-->
+    <!--<div class="alert" style="background-color:#fa39c3;color:white" role="alert">-->
+      <!--<div ng-transclude></div>-->
+    <!--</div>-->
+  <!--</script>-->
+
+
+
           <div class="mastfoot">
             <div class="inner" id="foot">
               <p>
