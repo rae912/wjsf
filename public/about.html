@@ -10,10 +10,9 @@
     <meta name="author" content="">
     <link rel="icon" href="img/favicon.ico">
     <title>
-      微鲸搜房
+      关于
     </title>
-    <!-- Bootstrap core CSS -->
-    <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -32,14 +31,6 @@
     <script src="components/jquery/dist/jquery.min.js"></script>
     <script src="js/jquery.highlight-5.js"></script>
   </head>
-  <script>
-    $( document ).click(function() {
-      $('li').highlight($("input").val());
-    });
-    $( document ).scroll(function() {
-      $('li').highlight($("input").val());
-    });
-</script>
 
   <body ng-controller="mainController">
     <div class="site-wrapper">
@@ -58,49 +49,19 @@
             </div>
           </div>
           <div class="inner cover">
-            <!--<h1 class="cover-heading">Cover your page.</h1>-->
-            <!--<p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>-->
+            <h1 class="cover-heading">业余公益项目</h1>
+            <p class="lead">此项目全部由业余时间完成，包含一系列的小作品。旨在利用业余时间学习和巩固编程知识，并使学习成果能够对他人提供工作或生活上的便利。如果你对编程感兴趣，欢迎加入我们交流。</p>
+
             <div class="container">
               <div class="row">
                 <div class="col-md-6">
-                  <div id="search">
-                    <h2>
-                      <img src="img/Logo.jpg" alt="logo" height="80" style="vertical-align:text-bottom">
-                      微鲸搜房
-                    </h2>
-                  </div>
 
-                  <form>
-                  <div id="custom-search-input">
-                    <div class="input-group col-md-12">
-                      <input type="text" class="form-control input-lg"  ng-model="formData.search" placeholder="试试输入关键字，例如：小区名、地铁线路等等" onchange="$('li').highlight($('input').val());">
-                      <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="submit" ng-click="createTodo()">
-                          <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                      </span>
-                    </div>
-                  </div>
-                </form>
                 </div>
 
               </div>
 
             </div>
- <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
-            <div class="post-tabs" >
-                  <ul class="posts" ng-repeat="x in formData.resp" repeat-finish="renderFinish()">
 
-                    <li class="post">
-                      <p>{{x._source.timestamp}}</p>
-                      {{x._source.description}}
-                      <br><a href="{{ x._source.url}}" target="_blank">原始地址</a>
-                    </li>
-
-                  </ul>
-
-
-            </div>
 
             <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
             <link href="css/custom.css" rel="stylesheet">
@@ -115,11 +76,6 @@
 
           </div>
 
-          <div ng-if="total">
-
-            <uib-pagination total-items="bigTotalItems" ng-model="formData.currentPage" max-size="maxSize" class="pagination-sm" boundary-link-numbers="true" ng-click="createTodo()"></uib-pagination>
-
-          </div>
 
 
           <div>
@@ -129,16 +85,8 @@
 
           <div class="mastfoot">
             <div class="inner" id="foot">
-              <p>
-                平台技术部
-                <a href="about.html">
-                  业余公益项目
-                </a>
-                , by
-                <a href="http://weiblog.tk">
-                  @王诚 @谭杨
-                </a>
-                .
+                <a href="/">返回</a>
+              <a href="mailto:wang.cheng@whaley.cn">联系我们</a>
               </p>
             </div>
           </div>
@@ -152,6 +100,7 @@
     ->
     <!-- Placed at the end of the document so the pages load faster -->
 
+    <!--<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js">  </script>
   </body>

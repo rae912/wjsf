@@ -43,9 +43,9 @@ ul.posts{
     border-bottom: 1px solid #e0e0e0;
     font-size: medium;
     position: relative;
-    left: -20%;
+    left: 0%;
     top: 30%;
-    width: 120%;
+    width: 100%;
     text-align: left;
 }
 
