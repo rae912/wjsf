@@ -36,6 +36,25 @@ body {
     text-shadow:0 0 0 transparent, 0 1px 3px #FFF;
 }
 
+ul.posts li.post {
+    font-family: 微软雅黑, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    list-style-type: none;
+    padding: 8px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: medium;
+    position: relative;
+    left: -20%;
+    top: 30%;
+    width: 120%;
+    text-align: left;
+}
+
+li.post p{
+    text-align: right;
+}
+
+.highlight { background-color: yellow }
+
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
     display: table;
@@ -169,3 +188,4 @@ body {
         width: 700px;
     }
 }
+
