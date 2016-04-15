@@ -35,6 +35,7 @@ scotchTodo.controller("mainController", function($scope, $http) {
                 $scope.alerts =  [
     { type: 'success', msg: '找到符合的信息' + response.data.hits.total + '条' }
   ];
+
             }, function errorCallback(response) {
                 console.log('ERROR:' + response)
             }

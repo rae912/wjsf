@@ -87,6 +87,7 @@
               </div>
 
             </div>
+
  <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
             <div class="post-tabs" >
                   <ul class="posts" ng-repeat="x in formData.resp" repeat-finish="renderFinish()">
@@ -119,7 +120,18 @@
 
             <uib-pagination total-items="bigTotalItems" ng-model="formData.currentPage" max-size="maxSize" class="pagination-sm" boundary-link-numbers="true" ng-click="createTodo()"></uib-pagination>
 
+                   <script type="text/ng-template" id="alert.html">
+    <div class="alert" style="color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;" role="alert">
+      <div ng-transclude></div>
+    </div>
+  </script>
+ <uib-alert template-url="alert.html">本项目信息均来自互联网，不保证信息的真实性。请谨慎联系，谨防上当受骗！</uib-alert>
+
+
           </div>
+
 
 
           <div>
@@ -135,7 +147,7 @@
                   业余公益项目
                 </a>
                 , by
-                <a href="https://github.com/rae912/">
+                <a href="mailto:tan.yang@whaley.cn?cc=wang.cheng@whaley.cn&subject=Suggest&body=批评和建议！">
                   @王诚 @谭杨
                 </a>
                 .

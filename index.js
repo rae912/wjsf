@@ -29,7 +29,6 @@ var Data = { "query" : { "match_phrase" : { "description" : req.body.search } },
   "sort" : [ { "timestamp" : { "order" : "desc" } } ]
 };
 
-    var page = 0;
 if (isNaN(req.body.currentPage)) {
     var page = 0;
 } else {
@@ -57,5 +56,5 @@ request({
 });
 
 
-app.listen(8080);
+app.listen(8001);
 console.log("App listening on port 8080");
