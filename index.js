@@ -21,7 +21,7 @@ var searchWord = '';
 app.get('/redirect', function(req, res) {
     console.log(req.query);
     searchWord = req.query.search;
-    res.redirect("/?search="+req.query.search);
+    res.redirect("/");
 });
 
 app.get('/api/todos', function(req, res) {
@@ -62,7 +62,7 @@ request({
         if (!error && response.statusCode == 200) {
             console.log('search:'+req.body.search);
             res.send(body);
-            console.log(Data)
+            console.log("total:"+body.hits.total)
         } else {
             console.log(error, response.statusCode, body)
         }
