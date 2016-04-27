@@ -15,10 +15,25 @@ app.configure(function () {
     app.use(express.json());
 });
 
+// redirect with GET Method
+var searchWord = '';
+
+app.get('/redirect', function(req, res) {
+    console.log(req.query);
+    searchWord = req.query.search;
+    res.redirect("/?search="+req.query.search);
+});
+
+app.get('/api/todos', function(req, res) {
+    console.log(req.query);
+    res.send(searchWord);
+});
+
 // get the index.html
 app.get('*', function(req, res) {
     res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 });
+
 
 // create Todo and send back all todos after creation
 app.post('/api/todos', function (req, res) {
