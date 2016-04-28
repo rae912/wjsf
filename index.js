@@ -25,8 +25,9 @@ app.get('/redirect', function(req, res) {
 });
 
 app.get('/api/todos', function(req, res) {
-    console.log(req.query);
+    console.log("/todo:"+searchWord);
     res.send(searchWord);
+    searchWord = null;
 });
 
 // get the index.html

@@ -14,6 +14,8 @@ scotchTodo.controller("mainController", function($scope, $http) {
             if (data.length >0) {
                 $scope.formData.search = data;
                 $scope.createTodo();
+            } else {
+                $scope.formData.search = null;
             }
         })
         .error(function (data) {
