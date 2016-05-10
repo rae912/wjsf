@@ -1,7 +1,11 @@
 
-
 img {
     border-radius: 50%;
+}
+
+.v-code {
+    border-radius: 10%;
+    width: 20%
 }
 
 #custom-search-input {
