@@ -30,15 +30,15 @@
       <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
       <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <!--<script src="components/jquery/dist/jquery.min.js"></script>-->
-    <script src="js/jquery.highlight-5.js"></script>
+      <script src="js/jquery.highlight-4.js"></script>
+
   </head>
   <script>
     $( document ).click(function() {
-      $('li').highlight($("input").val());
+      $('li').highlight($("input").val().split(" "),true);
     });
     $( document ).scroll(function() {
-      $('li').highlight($("input").val());
+      $('li').highlight($("input").val().split(" "),true);
     });
 </script>
 
@@ -74,7 +74,7 @@
                   <form>
                   <div id="custom-search-input">
                     <div class="input-group col-md-12">
-                      <input type="text" class="form-control input-lg"  ng-model="formData.search" placeholder="试试输入关键字，例如：小区名、地铁线路等等" onchange="$('li').highlight($('input').val());">
+                      <input type="text" class="form-control input-lg"  ng-model="formData.search" placeholder="试试输入关键字，例如：小区名、地铁线路等等"> 
                       <span class="input-group-btn">
                         <button class="btn btn-info btn-lg" type="submit" ng-click="createTodo()">
                           <i class="glyphicon glyphicon-search"></i>
